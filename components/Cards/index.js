@@ -18,6 +18,18 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+// axios.get('http://fakeserver.com/data')
+//     .then( response => {
+        // Remember response is an object, response.data is an array.
+    //     response.data.forEach( item => {
+    //         let button = buttonCreator(item);
+    //         parent.appendChild(button);
+    //     })
+    // })
+    // .catch( error => {
+    //     console.log("Error:", err);
+    // })
+
 axios.get("https://lambda-times-backend.herokuapp.com/articles")
   .then(function (response) {
     console.log(response.data.articles);
@@ -52,6 +64,15 @@ axios.get("https://lambda-times-backend.herokuapp.com/articles")
   
       cardsContainer.appendChild(card);
       console.log(card);
+
+      response.data.forEach( item => {
+        let card = cardCreator(item);
+        cardsContainer.appendChild(card);
+    })
+})
+.catch( error => {
+    console.log("Error:", err);
+})
 }
 
 
