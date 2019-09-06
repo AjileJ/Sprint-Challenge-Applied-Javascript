@@ -18,18 +18,6 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-// axios.get('http://fakeserver.com/data')
-//     .then( response => {
-        // Remember response is an object, response.data is an array.
-    //     response.data.forEach( item => {
-    //         let button = buttonCreator(item);
-    //         parent.appendChild(button);
-    //     })
-    // })
-    // .catch( error => {
-    //     console.log("Error:", err);
-    // })
-
     const container = document.querySelector('.cards-container');
 
     function cardCreator(headline, imgUrl, authorName){
