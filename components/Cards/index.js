@@ -20,7 +20,7 @@
 
     const container = document.querySelector('.cards-container');
 
-    function cardCreator(headline, imgUrl, authorName){
+    function cardCreator(headline, authorPhoto, authorName){
       const cardContainer = document.createElement('div');
       const headLine = document.createElement('div');
       const author = document.createElement('div');
@@ -40,7 +40,7 @@
       author.appendChild(span);
 
       headLine.textContent = headline;
-      img.src = imgUrl;
+      img.src = authorPhoto;
       span.textContent = authorName;
 
       return cardContainer
@@ -48,24 +48,24 @@
 
      axios.get('https://lambda-times-backend.herokuapp.com/articles')
      .then((response)=>{
-       response.data.articles['bootstrap'].forEach((article)=>{
-         const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+       response.data.articles['bootstrap'].forEach((param)=>{
+         const newCard = cardCreator(param.headline, param.authorPhoto, param.authorName)
          container.appendChild(newCard);
        })
-       response.data.articles['javascript'].forEach((article)=>{
-        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+       response.data.articles['javascript'].forEach((param)=>{
+        const newCard = cardCreator(param.headline, param.authorPhoto, param.authorName)
         container.appendChild(newCard);
       })
-      response.data.articles['jquery'].forEach((article)=>{
-        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+      response.data.articles['jquery'].forEach((param)=>{
+        const newCard = cardCreator(param.headline, param.authorPhoto, param.authorName)
         container.appendChild(newCard);
       })
-      response.data.articles['node'].forEach((article)=>{
-        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+      response.data.articles['node'].forEach((param)=>{
+        const newCard = cardCreator(param.headline, param.authorPhoto, param.authorName)
         container.appendChild(newCard);
       })
-      response.data.articles['technology'].forEach((article)=>{
-        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+      response.data.articles['technology'].forEach((param)=>{
+        const newCard = cardCreator(param.headline, param.authorPhoto, param.authorName)
         container.appendChild(newCard);
       })
       // console.log(response.data);

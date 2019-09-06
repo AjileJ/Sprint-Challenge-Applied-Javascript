@@ -30,9 +30,6 @@ function Header() {
    header.appendChild(temp);
    
    return header
-
-   
-   
 }
 let myHeader = Header();
 headerContainer.appendChild(myHeader);

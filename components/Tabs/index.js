@@ -7,32 +7,31 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+////component for anything we want/////reusable////////
+
+function createTab(param){
+  const tab = document.createElement('div');
+  tab.classList.add('tab');
+  tab.textContent = param;
+  return tab;
+  console.log(tab);
+ }
 
 const topics = document.querySelector('.topics');
 
 axios.get("https://lambda-times-backend.herokuapp.com/topics")
   .then(function (response) {
-    const listOfTabs = response.data.topics;
-    listOfTabs.forEach(tab => {
-      topics.appendChild(createTab(tab));
-    })
     console.log(response);
+    response.data.topics.forEach(tabParam => {
+      topics.appendChild(createTab(tabParam));
+      })
     
-   
-    
-   
     })
     .catch(function (error){
       console.log(error);
    })
 
-   function createTab(item){
-    const tab = document.createElement('div');
-    tab.classList.add('tab');
-    tab.textContent = item;
-    console.log(tab);
-    return tab;
-   }
+   
    
 
 
