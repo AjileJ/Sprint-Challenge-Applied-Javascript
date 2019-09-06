@@ -30,13 +30,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+  DOM stands for -  Document Object Model. this is a interfaceto web pages. It is essentially an API to the page allowing programs to read and manipulate the pages content. 
+
 2. What is an event?
+
+  An event would be something the browser does, or something a user does. Example: an html button was clicked.
 
 3. What is an event listener?
 
+  The EventListener interface represents an object that can handle an event dispatched by an EventTarget object.
+
 4. Why would we convert a NodeList into an Array?
 
+  We could convert a NodeList to an array if we wanted to use some methods on it besides forEach!
+
 5. What is a component?
+
+  Web Components is a suite of different technologies allowing you to create reusable custom elements with their functionality encapsulated away from the rest of your code  and utilize them in your web apps.
 
 ### Git Set up
 
