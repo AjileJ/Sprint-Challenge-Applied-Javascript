@@ -30,49 +30,107 @@
     //     console.log("Error:", err);
     // })
 
-axios.get("https://lambda-times-backend.herokuapp.com/articles")
-  .then(function (response) {
-    console.log(response.data.articles);
-})
-.catch(function (error){
-  console.log(error);
-})
+    const container = document.querySelector('.cards-container');
 
-    function cardCreator(item) {
-      const card = document.createElement('div');
-      const headline = document.createElement('div');
+    function cardCreator(headline, imgUrl, authorName){
+      const cardContainer = document.createElement('div');
+      const headLine = document.createElement('div');
       const author = document.createElement('div');
       const imgContainer = document.createElement('div');
-      const imgSrc = document.createElement('img');
-      const authorName = document.createElement('span');
-  
-      card.classList.add('card');
-      headline.classList.add('headline');
+      const img = document.createElement('img');
+      const span = document.createElement('span');
+
+      cardContainer.classList.add('card');
+      headLine.classList.add('headline');
       author.classList.add('author');
       imgContainer.classList.add('img-container');
-      
-      headline.textContent = `${headline}`;
-      imgSrc.src = `${authorPhoto}`;
-      authorName.textContent = `${authorName}`;
-  
-      const cardsContainer = document.querySelector('cards-container');
-      card.appendChild(headline);
-      card.appendChild(author);
-      author.appendChild(imgContainer);
-      imgContainer.appendChild(imgSrc);
-      author.appendChild(authorName);
-  
-      cardsContainer.appendChild(card);
-      console.log(card);
 
-      response.data.forEach( item => {
-        let card = cardCreator(item);
-        cardsContainer.appendChild(card);
-    })
-})
-.catch( error => {
-    console.log("Error:", err);
-})
-}
+      cardContainer.appendChild(headLine);
+      cardContainer.appendChild(author);
+      author.appendChild(imgContainer);
+      imgContainer.appendChild(img);
+      author.appendChild(span);
+
+      headLine.textContent = headline;
+      img.src = imgUrl;
+      span.textContent = authorName;
+
+      return cardContainer
+    }
+
+     axios.get('https://lambda-times-backend.herokuapp.com/articles')
+     .then((response)=>{
+       response.data.articles['javascript'].forEach((article)=>{
+         const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+         container.appendChild(newCard);
+       })
+       response.data.articles['bootstrap'].forEach((article)=>{
+        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+        container.appendChild(newCard);
+      })
+      response.data.articles['technology'].forEach((article)=>{
+        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+        container.appendChild(newCard);
+      })
+      response.data.articles['jquery'].forEach((article)=>{
+        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+        container.appendChild(newCard);
+      })
+      response.data.articles['node'].forEach((article)=>{
+        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+        container.appendChild(newCard);
+      })
+      console.log(response.data);
+     })
+
+    
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

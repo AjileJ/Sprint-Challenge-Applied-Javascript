@@ -28,12 +28,14 @@ function Header() {
    header.appendChild(date);
    header.appendChild(title);
    header.appendChild(temp);
-   headerContainer.appendChild(header);
+   
    return header
 
    
    
 }
+let myHeader = Header();
+headerContainer.appendChild(myHeader);
 console.log(Header());
 
 
