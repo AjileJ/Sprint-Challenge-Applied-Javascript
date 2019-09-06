@@ -48,15 +48,11 @@
 
      axios.get('https://lambda-times-backend.herokuapp.com/articles')
      .then((response)=>{
-       response.data.articles['javascript'].forEach((article)=>{
+       response.data.articles['bootstrap'].forEach((article)=>{
          const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
          container.appendChild(newCard);
        })
-       response.data.articles['bootstrap'].forEach((article)=>{
-        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
-        container.appendChild(newCard);
-      })
-      response.data.articles['technology'].forEach((article)=>{
+       response.data.articles['javascript'].forEach((article)=>{
         const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
         container.appendChild(newCard);
       })
@@ -68,7 +64,11 @@
         const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
         container.appendChild(newCard);
       })
-      console.log(response.data);
+      response.data.articles['technology'].forEach((article)=>{
+        const newCard = cardCreator(article.headline, article.authorPhoto, article.authorName)
+        container.appendChild(newCard);
+      })
+      // console.log(response.data);
      })
 
     

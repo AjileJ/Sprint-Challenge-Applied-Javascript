@@ -36,7 +36,7 @@ function Header() {
 }
 let myHeader = Header();
 headerContainer.appendChild(myHeader);
-console.log(Header());
+// console.log(Header());
 
 
 
